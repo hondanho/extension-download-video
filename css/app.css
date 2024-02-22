@@ -1,0 +1,346 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&subset=latin,cyrillic");
+::-webkit-scrollbar-button {
+  background-repeat: no-repeat;
+  width: 0;
+  height: 0;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #ecedee;
+  opacity: 0.5;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background-color: #949494;
+  opacity: 0.5;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #2f4050;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.wrapper {
+  background-color:rgba(255, 255, 255);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.downloading {
+  width: 30px;
+  height: 32px;
+  position: relative;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30%;
+}
+
+.custom-arrow {
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -7px;
+  background-color: #000;
+
+  -webkit-animation-name: downloading;
+  -webkit-animation-duration: 1.5s;
+  -webkit-animation-iteration-count: infinite;
+  animation-name: downloading;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+
+  &:after {
+    content: ''; position: absolute; display: block;
+    top: 50%;
+    left: -9px;
+    border-top: 15px solid #000;
+    border-left: 16px solid transparent;
+    border-right: 16px solid transparent;
+  }
+}
+
+.message-text:before {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50% , -50%);
+  -webkit-transform: translate(-50%, -50%);
+  text-align: center;
+  content: "Video is downloading... \A Please do not close this window.";
+  white-space: pre;
+}
+
+.bar {
+  width: 30px;
+  height: 4px;
+  background-color: #000;
+  margin: 0 auto;
+}
+
+@-webkit-keyframes downloading {
+  0% {
+    top: 0;
+    opacity: 1;
+  }
+  50% {
+    top: 110%;
+    opacity: 0;
+  }
+  52% {
+    top: -110%;
+    opacity: 0;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+@keyframes downloading {
+  0% {
+    top: 0;
+    opacity: 1;
+  }
+  50% {
+    top: 110%;
+    opacity: 0;
+  }
+  52% {
+    top: -110%;
+    opacity: 0;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+#vlc-player {
+  width: 500px;
+  height: 100%;
+  font-family: Roboto, Arial, sans-serif;
+  font-weight: 300;
+  color: #4d4d4d;
+  position: relative;
+}
+
+#vlc-player * {
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.collapse_click-label {
+  display: block;
+  width: 26px;
+  height: 17px;
+  margin-right: 8px !important;
+  background-size: cover;
+  background-position: center;
+  background-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 768 768'%3E%3Ctitle%3E%3C/title%3E%3Cg id='icomoon-ignore'%3E%3C/g%3E%3Cpath fill='%23000' d='M169.376 310.624l192 192c12.512 12.512 32.768 12.512 45.248 0l192-192c12.512-12.512 12.512-32.768 0-45.248s-32.768-12.512-45.248 0l-169.376 169.376-169.376-169.376c-12.512-12.512-32.768-12.512-45.248 0s-12.512 32.768 0 45.248z'%3E%3C/path%3E%3C/svg%3E");
+  cursor: pointer;
+}
+
+.collapse_click-input {
+  width: 0;
+  height: 0;
+}
+
+#vlc-player .vlc-icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 5px;
+}
+
+#vlc-player .vlc-icon.vlc-play {
+  background: url(../img/play.svg) center/contain no-repeat;
+}
+
+#vlc-player .vlc-icon.vlc-download {
+  background: url(../img/download.svg) center/contain no-repeat;
+}
+
+#vlc-player .vlc-icon.vlc-link {
+  background: url(../img/link.svg) center/contain no-repeat;
+}
+
+#vlc-player .vlc-icon.vlc-remove {
+  background: url(../img/remove.svg) center/contain no-repeat;
+}
+
+#vlc-player .vlc-icon:hover {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+#vlc-player .vlc-video-box {
+  position: relative;
+  text-align: center;
+}
+
+#vlc-player .vlc-video-box .vlc-video-close-icon {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: url(../img/remove.svg) center/contain no-repeat;
+  cursor: pointer;
+  -webkit-transition: all 200ms;
+  transition: all 200ms;
+  z-index: 100;
+}
+
+#vlc-player .vlc-video-box .vlc-video-close-icon:hover {
+  opacity: 0.7;
+}
+
+#vlc-player .vlc-video-box video.vlc-video {
+  max-width: 100%;
+  width: 100%;
+  margin: auto;
+  display: inline-block;
+}
+
+#vlc-player ul.vlc-videos-ul {
+  padding: 0;
+}
+
+.vlc-title_span {
+  margin-left: 5px !important;
+  font-size: 9px !important;
+  margin-right: 10px !important;
+}
+
+#vlc-player ul.vlc-videos-ul li.vlc-video-li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+#vlc-player ul.vlc-videos-ul li.vlc-video-li .vlc-play {
+  width: 20px;
+  height: 20px;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  margin-right: 0;
+}
+
+#vlc-player ul.vlc-videos-ul li.vlc-video-li .vlc-title {
+  margin: 0;
+  margin-right: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -ms-flex-negative: 1;
+  flex-shrink: 1;
+  width: 100%;
+}
+
+#vlc-player ul.vlc-videos-ul li.vlc-video-li .vlc-btns {
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+#vlc-player ul.vlc-videos-ul li.vlc-video-li .vlc-btn {
+  display: inline-block;
+  width: 130px;
+  line-height: 30px;
+  font-size: 12px;
+  margin-left: 5px;
+  border-radius: 3px;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: #fff;
+  background: #003cfc;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+#vlc-player ul.vlc-videos-ul li.vlc-video-li .vlc-btn:hover {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+#vlc-player ul.vlc-videos-ul li.vlc-video-li:hover {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  background: #fbfbfb;
+}
+
+#vlc-player ul.vlc-videos-ul li.vlc-video-li:hover .yt-play-track {
+  display: block;
+}
+
+#vlc-player ul.vlc-videos-ul li.vlc-video-li.vlc-active .vlc-title {
+  font-weight: bold;
+}
+
+#vlc-player #vlc-main {
+  padding: 10px;
+}
+
+#vlc-player #vlc-video-not-found-view {
+  padding: 0;
+  text-align: center;
+}
+
+#vlc-player #vlc-video-not-found-view .vlc-caption {
+  color: #0430f5;
+  margin: 20px 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 30px;
+}
+
+#vlc-player .vlc-msg-box {
+  position: fixed;
+  bottom: -100px;
+  left: 50%;
+  margin-left: -70px;
+  width: 140px;
+  text-align: center;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+  padding: 5px;
+}
+
+#vlc-player .vlc-msg-box.show {
+  bottom: 10px;
+}
+/*# sourceMappingURL=app.css.map */
